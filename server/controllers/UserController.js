@@ -1,35 +1,31 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
-import UserModel from '../models/User.js';
+import User from '../models/models.js';
 
 
 export const register = async (req, res) => {
-
     try {
         const errors = validationResult(req);
-        if(!errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             return res.status(400).json(errors.array());
         }
 
-        const getPassword = req.body.password;
-        const salt = await bcrypt.genSalt(10);
-        const hash = await bcrypt.hash(getPassword, salt);
+        const { email, fullName, role, avatarUrl, departament } = req.body;
+        const password = await bcrypt.hash(req.body.password, 10);
 
-        const doc = new UserModel({
-            email: req.body.email,
-            fullName: req.body.fullName,
-            role: req.body.role,
-            avatarUrl: req.body.avatarUrl,
-            departament: req.body.departament,
-            password: hash,
+        const user = await User.create({
+            email,
+            fullName,
+            role,
+            avatarUrl,
+            departament,
+            password,
         });
-
-        const user = await doc.save();
 
         const token = jwt.sign(
             {
-                _id: user._id,
+                id: user.id,
             },
             'secret123',
             {
@@ -37,43 +33,43 @@ export const register = async (req, res) => {
             }
         );
 
-        const {password, ...userData} = user._doc;
+        const { password: _, ...userData } = user.toJSON();
 
         res.json({
             ...userData,
             token,
         });
-
     } catch (err) {
-        console.log(err)
+        console.log(err);
         res.status(500).json({
             message: 'Не удалось зарегистрировать пользователя',
         });
     }
-
 }
 
 export const login = async (req, res) => {
     try {
-        const user = await UserModel.findOne({ email: req.body.email });
+        const { email, password } = req.body;
 
-        if(!user) {
+        const user = await User.findOne({ where: { email } });
+
+        if (!user) {
             return res.status(404).json({
                 message: 'Пользователь не найден',
-             })
+            });
         }
 
-        const isValidPass = await bcrypt.compare(req.body.password, user._doc.password);
+        const isValidPass = await bcrypt.compare(password, user.password);
 
-        if(!isValidPass) {
+        if (!isValidPass) {
             return res.status(400).json({
                 message: 'Неверный логин или пароль',
-            })
+            });
         }
 
         const token = jwt.sign(
             {
-                _id: user._id,
+                id: user.id,
             },
             'secret123',
             {
@@ -81,39 +77,37 @@ export const login = async (req, res) => {
             }
         );
 
-        const {password, ...userData} = user._doc;
+        const { password: _, ...userData } = user.toJSON();
 
         res.json({
             ...userData,
             token,
-        })
-
-    } catch(err) {
+        });
+    } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: 'Не удалось авторизоваться'
-        })
+            message: 'Не удалось авторизоваться',
+        });
     }
 }
 
 export const getMe = async (req, res) => {
     try {
-        const user = await UserModel.findById(req.userId);
+        const user = await User.findByPk(req.userId);
 
-        if(!user) {
+        if (!user) {
             return res.status(404).json({
                 message: 'Пользователь не найден',
-            })
+            });
         }
 
-        const {password, ...userData} = user._doc;
+        const { password: _, ...userData } = user.toJSON();
 
         res.json(userData);
     } catch (err) {
-        console.log(err)
+        console.log(err);
         res.status(500).json({
             message: 'Нет доступа',
         });
     }
-
 }
