@@ -31,6 +31,13 @@ const User = sequelize.define('User',
         departament: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        isActivated: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: 'false',
+        },
+        activationLink: {
+            type: DataTypes.STRING,
         }
     },
     {
