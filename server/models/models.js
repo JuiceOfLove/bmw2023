@@ -34,7 +34,7 @@ const User = sequelize.define('User',
         },
         isActivated: {
             type: DataTypes.BOOLEAN,
-            defaultValue: 'false',
+            defaultValue: false,
         },
         activationLink: {
             type: DataTypes.STRING,

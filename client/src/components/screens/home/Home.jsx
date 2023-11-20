@@ -1,8 +1,17 @@
 import React from 'react'
+import { Context } from '../../../index';
+import { useContext } from 'react';
+
 
 const Home = () => {
+
+  const { store } = useContext(Context);
+
   return (
-    <div>Home</div>
+    <div>
+      <button onClick={() => store.logout()}>Выйти</button>
+    </div>
+
   )
 }
 

@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'BMWGroup_Global_Bold';
+    src: url('../fonts/BMWGroup_Global_Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BMWGroup_Global_Light';
+    src: url('../fonts/BMWGroup_Global_Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BMWGroup_Global_Regular';
+    src: url('../fonts/BMWGroup_Global_Regular.ttf') format('truetype');
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bmw-global-bold: 'BMWGroup_Global_Bold';
+    --bmw-global-light: url('../fonts/BMWGroup_Global_Light.ttf') format('truetype');
+    --bmw-global-regular: url('../fonts/BMWGroup_Global_Regular.ttf') format('truetype');
+}

@@ -1,0 +1,68 @@
+.background {
+    background: linear-gradient(180deg, #5A7E96 2.71%, #799BC0 59.48%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;;
+    background-color: white;
+    /* padding: 20px; */
+    border-radius: 10px;
+    width: 600px;
+    height: 500px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 39px;
+    margin-bottom: 15.17px;
+}
+
+.text {
+    font-size: 30px;
+    font-family: 'BMWGroup_Global_Bold', sans-serif;
+    margin-bottom: 35px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.input {
+    margin-bottom: 12px;
+    padding: 11px;
+    width: 320px;
+    border: none;
+    border-radius: 12px;
+    background: #929292;
+    color: #fff;
+    outline: none;
+}
+
+.input::placeholder {
+    color: #fff;
+}
+
+.btn {
+    width: 211px;
+    height: 50px;
+    border-radius: 12px;
+    background: #89B8E3;
+    border: none;
+    color: #fff;
+    font-size: 21px;
+    cursor: pointer;
+}
