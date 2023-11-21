@@ -4,7 +4,7 @@ import Login from './../screens/login/Login';
 import { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../index';
-import { Layout } from '../ui/Layout';
+import  Layout  from '../ui/Layout';
 
 const Router = () => {
   const { store } = useContext(Context);

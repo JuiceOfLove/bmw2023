@@ -20,7 +20,18 @@ npm run start
 
 ### Versions
 
-**V0.3** - *current*
+**V0.4** - *current*
+
+#### Client
+- Добавлена логика для Layout
+- Изменина логика хранения изображений
+- checkAuth localStorage fix
+
+#### Server
+- refreshToken fix
+- response error text fix
+
+**V0.3**
 
 - Добавлена страница авторизации
 - Логика refresh token изменена *(на рассмотрении)

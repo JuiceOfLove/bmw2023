@@ -3,6 +3,7 @@ import styles from './Login.module.css'
 import { Context } from '../../../index'
 import {observer} from "mobx-react-lite";
 
+import fullLogo from '../../../assets/images/BMWGroupNext.png';
 
 const Login = () => {
 
@@ -15,7 +16,7 @@ const Login = () => {
     <div className={styles.background}>
       <div className={styles.container}>
         <form className={styles.form}>
-          <img src="/images/BMWGroupNext.png" alt="Bmw logo" className={styles.logo} />
+          <img src={fullLogo} alt="Bmw logo" className={styles.logo} />
           <span className={styles.text}>Авторизация</span>
           <div className={styles.inputs}>
             <input
