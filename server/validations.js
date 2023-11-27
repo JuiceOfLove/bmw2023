@@ -10,6 +10,6 @@ export const registerValidation = [
     body('password').isLength({ min: 5 }),
     body('fullName').isLength({ min: 3 }),
     body('role').isLength({ min: 3 }),
-    body('avatarUrl').optional().isURL(),
+    body('avatarUrl').isLength({ min: 3 }),
     body('departament').isLength({ min: 3 }),
 ];

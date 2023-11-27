@@ -10,8 +10,8 @@ router.post('/registration',
     body('password').isLength({ min: 5 }),
     body('fullName').isLength({ min: 3 }),
     body('role').isLength({ min: 3 }),
-    body('avatarUrl').optional().isURL(),
-    body('departament').isLength({ min: 3 }),
+    body('departament').isLength({ min: 2 }),
+    body('avatarUrl').isLength({ min: 3 }),
     UserController.registration
 );
 router.post('/login', UserController.login);

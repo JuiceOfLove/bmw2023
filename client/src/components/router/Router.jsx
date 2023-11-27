@@ -1,10 +1,17 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Home from './../screens/home/Home';
-import Login from './../screens/login/Login';
 import { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../index';
-import  Layout  from '../ui/Layout';
+
+import Home from './../screens/home/Home';
+import Login from './../screens/login/Login';
+import AdminPage from './../screens/adminPage/AdminPage';
+import Settings from '../screens/settings/Settings';
+import Layout from '../ui/Layout';
+import Users from '../screens/adminPage/users/Users';
+
+
+
 
 const Router = () => {
   const { store } = useContext(Context);
@@ -16,17 +23,25 @@ const Router = () => {
   }, [store]);
 
   if (store.isLoading) {
-    return <div>Загрузка...</div>
+    return <div>Загрузка...</div>;
   }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route element={!store.isAuth ? (<Navigate to="/auth/login" replace />) : (<Home />)} index />
-        </Route>
-        <Route element={store.isAuth ? (<Navigate to="/" replace />) : (<Login />)} path="/auth/login"/>
-        <Route path="*" element={store.isAuth ? <Navigate to="/" replace /> : <Navigate to="/auth/login" replace />} />
+        {store.isAuth ? (
+          <>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path='settings' element={<Settings />} />
+              <Route path="admin" element={<AdminPage />} />
+              <Route path="admin/users" element={<Users/>} />
+            </Route>
+          </>
+        ) : (
+          <Route path="/auth/login" element={<Login />} />
+        )}
+         <Route path="*" element={store.isAuth ? <Navigate to="/" replace /> : <Navigate to="/auth/login" replace />} />
       </Routes>
     </BrowserRouter>
   );

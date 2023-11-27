@@ -1,0 +1,86 @@
+.ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+}
+
+.link {
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #89B8E3;
+    margin: 0 20px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    border-width: 0 50px 50px 50px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.link:nth-child(3)::after,
+.link:nth-child(4)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 50px 50px 50px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.link:hover .item{
+    color: #fff;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-family: 'BMWGroup_Global_Bold', sans-serif;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}

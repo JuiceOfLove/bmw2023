@@ -2,7 +2,6 @@ import { validationResult } from 'express-validator';
 import UserService from '../service/userService.js';
 import ApiError from '../exceptions/apiError.js';
 
-
 export const registration = async (req, res, next) => {
     try {
         const errors = validationResult(req);
@@ -10,7 +9,7 @@ export const registration = async (req, res, next) => {
             return next(ApiError.BadRequest('Ошибка при валидации', errors.array()));
         }
         const { email, password, role, fullName, departament, avatarUrl} = req.body;
-        const userData = await UserService.registration(email, password, role, fullName, departament, avatarUrl);
+        const userData = await UserService.registration(email, password, fullName, departament, role, avatarUrl);
         res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
         return res.json(userData);
     } catch (e) {

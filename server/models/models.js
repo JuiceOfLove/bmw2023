@@ -7,7 +7,7 @@ const User = sequelize.define('User',
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         fullName: {
             type: DataTypes.STRING,
@@ -21,16 +21,19 @@ const User = sequelize.define('User',
         role: {
             type: DataTypes.STRING,
             defaultValue: 'member',
-            allowNull: false
+            allowNull: true,
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
-        avatarUrl: DataTypes.STRING,
         departament: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        avatarUrl: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         isActivated: {
             type: DataTypes.BOOLEAN,

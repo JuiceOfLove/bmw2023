@@ -1,8 +1,9 @@
 import {Link, Outlet} from 'react-router-dom'
-import styles from './Layout.module.css'
 import { Context } from '../../index';
 import { useContext } from 'react';
 import {observer} from "mobx-react-lite";
+
+import styles from './Layout.module.css'
 
 import logo from "../../assets/images/BMWGroupNext_logo.png"
 import logout from "../../assets/icons/logout.png"
@@ -21,10 +22,11 @@ const Layout = () => {
                     <nav className={styles.nav}>
                         <ul className={styles.ul}>
                             <li><Link to='/' className={styles.nav__link}>Home</Link></li>
-                            <li><a className={styles.nav__link} >Tests</a></li>
-                            <li><a className={styles.nav__link} >Patterns</a></li>
-                            <li><a className={styles.nav__link} >News</a></li>
-                            <li><a className={styles.nav__link} >Settings</a></li>
+                            {/* <li><a className={styles.nav__link} >Tests</a></li> */}
+                            {/* <li><a className={styles.nav__link} >Patterns</a></li> */}
+                            {/* <li><a className={styles.nav__link} >News</a></li> */}
+                            <li><Link to='/settings' className={styles.nav__link} >Settings</Link></li>
+                            {store.isAuth && store.user.role === 'admin' && (<li><Link to='/admin' className={styles.nav__link}>Admin</Link></li>)}
                             <li><img src={logout} onClick={() => store.logout()} className={styles.logout} alt='logout icon' /></li>
                         </ul>
                     </nav>

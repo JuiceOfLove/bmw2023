@@ -9,7 +9,7 @@ const Token = sequelize.define('Token', {
         autoIncrement: true
     },
     refreshToken: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     }
 });

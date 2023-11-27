@@ -20,7 +20,19 @@ npm run start
 
 ### Versions
 
-**V0.4** - *current*
+**V0.5** - *current*
+
+#### Client
+- Добавлена логика админки
+- Доработка рутов
+
+#### Server
+- refreshToken full fix
+- models fix
+- upload new user info bug fix
+- userService small fix
+
+**V0.4**
 
 #### Client
 - Добавлена логика для Layout

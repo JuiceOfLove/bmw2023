@@ -36,7 +36,7 @@ class TokenService {
             tokenData.refreshToken = refreshToken;
             await tokenData.save();
         } else {
-            await Token.create({ userId: userId, refreshToken });
+            await Token.create({ userId: userId, refreshToken }, { refreshToken: { type: 'TEXT' } });
         }
     }
 
