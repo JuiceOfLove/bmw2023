@@ -25,13 +25,13 @@
 }
 
 .logo {
-    height: 39px;
+    height: 55px;
     margin-bottom: 15.17px;
 }
 
 .text {
     font-size: 30px;
-    font-family: 'BMWGroup_Global_Bold', sans-serif;
+    font-family: 'BMWGroupTNTT-Bold', sans-serif;
     margin-bottom: 35px;
 }
 
@@ -42,6 +42,7 @@
 }
 
 .input {
+    font-family: 'BMWGroupTNTT-Regular', sans-serif;
     margin-bottom: 12px;
     padding: 11px;
     width: 320px;
@@ -54,6 +55,7 @@
 
 .input::placeholder {
     color: #fff;
+    font-family: 'BMWGroupTNTT-Regular', sans-serif;
 }
 
 .btn {
@@ -65,4 +67,5 @@
     color: #fff;
     font-size: 21px;
     cursor: pointer;
+    font-family: 'BMWGroupTNTT-Regular', sans-serif;
 }

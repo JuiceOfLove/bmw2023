@@ -13,6 +13,20 @@
     src: url('../fonts/BMWGroup_Global_Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'BMWGroupTNTT-Regular';
+    src: url('../fonts/BMWGroupTNTT-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BMWGroupTNTT-Light';
+    src: url('../fonts/BMWGroupTNTT-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BMWGroupTNTT-Bold';
+    src: url('../fonts/BMWGroupTNTT-Bold.ttf') format('truetype');
+}
 
 *{
     padding: 0;
@@ -24,4 +38,35 @@
     --bmw-global-bold: 'BMWGroup_Global_Bold';
     --bmw-global-light: url('../fonts/BMWGroup_Global_Light.ttf') format('truetype');
     --bmw-global-regular: url('../fonts/BMWGroup_Global_Regular.ttf') format('truetype');
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #A8A8A7;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+background-color: #f5f5f5;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #A8A8A7 #f5f5f5;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #A8A8A7;
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
 }

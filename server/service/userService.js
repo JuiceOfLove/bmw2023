@@ -7,14 +7,16 @@ import ApiError from '../exceptions/apiError.js';
 import User from '../models/models.js';
 
 class UserService {
-    async registration(email, password, fullName, departament, role, avatarUrl) {
+    async registration(email, fullName, departament, role, avatarUrl) {
         const candidate = await User.findOne({ where: { email } });
 
         if (candidate) {
             throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`);
         }
 
-        const hashPassword = await bcrypt.hash(password, 10);
+        const randomPassword = Math.random().toString(36).substring(2, 12) + Math.random().toString(36).substring(2, 12);
+
+        const hashPassword = await bcrypt.hash(randomPassword, 10);
         const activationLink = uuidv4();
 
         const user = await User.create({
@@ -24,15 +26,15 @@ class UserService {
             fullName,
             departament,
             role,
-            avatarUrl
+            avatarUrl: '/uploads/avatars/user.png'
         });
-        await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
+        await mailService.sendActivationMail(email, randomPassword,`${process.env.API_URL}/api/activate/${activationLink}`);
 
         const userDto = new UserDto(user);
-        const tokens = tokenService.generateTokens({ ...userDto });
+        const tokens = tokenService.generateTokens({...userDto});
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
-        return { ...tokens, user: userDto };
+        return {...tokens, user: userDto}
     }
 
     async activate(activationLink) {
@@ -94,6 +96,40 @@ class UserService {
     async getAllUsers() {
         const users = await User.findAll();
         return users;
+    }
+
+    async getUserById(id) {
+        const user = await User.findByPk(id);
+        if (!user) {
+            throw ApiError.NotFound(`Пользователь с ID ${id} не найден`);
+        }
+        return user;
+    }
+
+    async comparePasswords(password, hashedPassword) {
+        return await bcrypt.compare(password, hashedPassword);
+    }
+
+    async hashPassword(password) {
+        return await bcrypt.hash(password, 10);
+    }
+
+    async updateUserPassword(id, newPassword) {
+        const user = await this.getUserById(id);
+        const hashedNewPassword = await this.hashPassword(newPassword);
+        user.password = hashedNewPassword;
+        await user.save();
+    }
+
+    async updateAvatarUrl(userId, avatarUrl) {
+        const user = await this.getUserById(userId);
+        user.avatarUrl = avatarUrl;
+        await user.save();
+    }
+
+    async getAvatarUrl(userId) {
+        const user = await this.getUserById(userId);
+        return user.avatarUrl;
     }
 }
 

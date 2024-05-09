@@ -5,9 +5,17 @@ export default class AuthService {
         return $api.post('/login', { email, password });
     }
 
-    static async registration(email, password) {
-        return $api.post('/registration', { email, password });
-    }
+    static async registration(email) {
+        const registrationData = {
+          email,
+          fullName: 'none',
+          departament: 'none',
+          role: 'member',
+          avatarUrl: 'none',
+        };
+
+        return $api.post('/registration', registrationData);
+      }
 
     static async logout() {
         return $api.post('/logout');

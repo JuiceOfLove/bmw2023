@@ -1,0 +1,85 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .questionContainer {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  textarea, input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+
+  .optionsContainer {
+    margin-top: 12px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .option input[type="text"] {
+    flex: 1;
+  }
+
+  .option label {
+    margin-left: 12px;
+  }
+
+  .buttonsContainer {
+    margin-top: 12px;
+  }
+
+  button {
+    padding: 8px 16px;
+    margin-right: 8px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .removeOptionButton,
+.removeQuestionButton,
+.addOptionButton,
+.addQuestionButton,
+.createPatternButton {
+  padding: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  background-color: #dc3545; /* красный цвет */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.removeOptionButton,
+.removeQuestionButton {
+  background-color: #dc3545; /* красный цвет */
+}
+
+.removeOptionButton:hover,
+.removeQuestionButton:hover,
+.addOptionButton:hover,
+.addQuestionButton:hover,
+.createPatternButton:hover {
+  background-color: #c82333; /* темно-красный цвет при наведении */
+}

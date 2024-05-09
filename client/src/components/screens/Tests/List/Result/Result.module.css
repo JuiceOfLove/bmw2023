@@ -1,0 +1,29 @@
+.resultContainer {
+    width: 80%;
+}
+
+.resultContainer h2 {
+    /* Стили для заголовка */
+}
+
+.resultContainer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resultContainer li {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.resultContainer .correctBackground {
+    background-color: lightgreen;
+}
+
+.resultContainer .warningBackground {
+    background-color: yellow;
+}
+
+.resultContainer .errorBackground {
+    background-color: lightcoral;
+}

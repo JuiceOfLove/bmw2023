@@ -3,7 +3,7 @@ import styles from './Login.module.css'
 import { Context } from '../../../index'
 import {observer} from "mobx-react-lite";
 
-import fullLogo from '../../../assets/images/BMWGroupNext.png';
+import fullLogo from '../../../assets/images/BMWGroupNext_logo.png';
 
 const Login = () => {
 

@@ -1,6 +1,12 @@
 .header {
     display: flex;
-    padding: 48px 50px;
+    padding: 24px 50px;
+}
+
+.logo {
+    display: flex;
+    align-self: center;
+    width: 110px;
 }
 
 .container {
@@ -19,6 +25,7 @@
 }
 
 .nav__link {
+    font-family: 'BMWGroupTNTT-Regular', sans-serif;
     text-decoration: none;
     color: #414141;
     font-size: 13px;
@@ -52,6 +59,20 @@
     margin-left: 5px;
     cursor: pointer;
 }
+
+.avatarContainer {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .avatarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
 .container {
     width: 100%;
