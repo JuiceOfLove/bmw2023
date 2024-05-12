@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../../../index';
+import styles from './Send.module.css';
 import TestService from '../../../../services/TestService';
 
 const Send = () => {
@@ -76,49 +77,38 @@ const Send = () => {
     const filteredTests = formData.testType === 'comp' ? tests.filter(test => test.test.testType === 'comp') : tests.filter(test => test.test.testType !== 'comp');
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>Отправить тест</h2>
-            <form onSubmit={formData.testType === 'comp' ? handleCompSubmit : handleSubmit}>
-                <label>
-                    Email получателя:
-                    <input type="email" name="recipientEmail" value={formData.recipientEmail} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Имя получателя:
-                    <input type="text" name="recipientName" value={formData.recipientName} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Время на прохождение (в минутах):
+            <form className={styles.form} onSubmit={formData.testType === 'comp' ? handleCompSubmit : handleSubmit}>
+                <div className={styles.formGroup}>
+                    <label>Email получателя:</label>
+                    <input type="email" name="recipientEmail" placeholder='ivanov@mail.ru' value={formData.recipientEmail} onChange={handleChange} />
+                </div>
+                <div className={styles.formGroup}>
+                    <label>Имя получателя:</label>
+                    <input type="text" name="recipientName" placeholder='Валерий' value={formData.recipientName} onChange={handleChange} />
+                </div>
+                <div className={styles.formGroup}>
+                    <label>Время на прохождение (в минутах):</label>
                     <input type="number" name="duration" value={formData.duration} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Выберите тип теста:
+                </div>
+                <div className={styles.formGroup}>
+                    <label>Выберите тип теста:</label>
                     <select name="testType" value={formData.testType} onChange={handleChange}>
                         <option value="test">Тест</option>
                         <option value="comp">Тест компетенции</option>
                     </select>
-                </label>
-                <br />
-                <label>
-                    Выберите тест:
+                </div>
+                <div className={styles.formGroup}>
+                    <label>Выберите тест:</label>
                     <select name="selectedTest" value={formData.selectedTest ? formData.selectedTest.id : ''} onChange={handleTestSelection}>
-                        <option value="" disabled>
-                            Выберите тест
-                        </option>
+                        <option value="" disabled>Выберите тест</option>
                         {filteredTests.map((test) => (
-                            <option key={test.id} value={test.id}>
-                                {test.test.testName}
-                            </option>
+                            <option key={test.id} value={test.id}>{test.test.testName}</option>
                         ))}
                     </select>
-                </label>
-                <br />
-                <button type="submit" disabled={!formData.selectedTest}>
-                    Начать тест
-                </button>
+                </div>
+                <button className={styles.submitButton} type="submit" disabled={(!formData.selectedTest || !formData.recipientEmail || !formData.duration)}>Начать тест</button>
             </form>
         </div>
     );

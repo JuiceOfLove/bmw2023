@@ -102,20 +102,46 @@ const List = () => {
     };
 
     return (
-        <div>
-            <h2>Список результатов</h2>
-            <div>
-                <button onClick={() => handleFilter('all')}>Все</button>
-                <button onClick={() => handleFilter('type1')}>Тип 1</button>
-                <button onClick={() => handleFilter('type2')}>Тип 2</button>
+        <div className={styles.container}>
+            <h2 className={styles.heading}>Список результатов</h2>
+            <div className={styles.filterButtons}>
+                <button
+                    className={`${styles.filterButton} ${resultType === 'all' && styles.active}`}
+                    onClick={() => handleFilter('all')}
+                >
+                    Все
+                </button>
+                <button
+                    className={`${styles.filterButton} ${resultType === 'type1' && styles.active}`}
+                    onClick={() => handleFilter('type1')}
+                >
+                    Тесты
+                </button>
+                <button
+                    className={`${styles.filterButton} ${resultType === 'type2' && styles.active}`}
+                    onClick={() => handleFilter('type2')}
+                >
+                    Компетенции
+                </button>
             </div>
-            <ul>
+            <ul className={styles.resultsList}>
                 {filterResultsByType(resultType).map((result, index) => (
                     <li key={index} className={styles.resultItem}>
-                        <p>Отправитель: {getUserName(result.userId)}</p>
-                        <p>Получатель: {result.recipient}</p>
-                        <p>Название теста: {getTestTitle(result.testId)}</p>
-                        <Link to={`/tests/list/${result.id}`} className={styles.resultLink}>Подробнее</Link>
+                        <div>
+                            <p>Отправитель:</p>
+                            <span>{getUserName(result.userId)}</span>
+                        </div>
+                        <div>
+                            <p>Получатель:</p>
+                            <span>{result.recipient}</span>
+                        </div>
+                        <div>
+                            <p>Название теста:</p>
+                            <span>{getTestTitle(result.testId)}</span>
+                        </div>
+                        <Link to={`/tests/list/${result.id}`} className={styles.resultLink}>
+                            Подробнее
+                        </Link>
                     </li>
                 ))}
             </ul>

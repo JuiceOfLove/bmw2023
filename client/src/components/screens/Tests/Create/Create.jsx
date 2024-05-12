@@ -163,6 +163,7 @@ const Create = () => {
 
   return (
     <div className={styles.container}>
+      <span className={styles.testCreateTitle}>Создание теста</span>
       <label className={styles.labelPattern}>
         <select
           value={selectedPatternId}
@@ -264,7 +265,7 @@ const Create = () => {
 
           {question.type === 1 && (
             <div>
-              <label>
+              <label className={styles.answerType}>
                 Варианты ответов:
                 {question.options.map((option, optionIndex) => (
                   <div key={option.id} className={styles.questionOption}>

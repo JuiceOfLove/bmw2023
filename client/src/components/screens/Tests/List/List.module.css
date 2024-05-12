@@ -1,19 +1,93 @@
+.resultsList {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .resultItem {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+background-color: #fff;
+border: 1px solid #ddd;
+width: 900px;
+display: flex;
+justify-content: space-between;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+padding: 20px;
+margin-bottom: 20px;
+}
+
+.resultItem h3 {
+margin: 0;
+font-size: 18px;
+font-weight: 600;
+}
+
+.resultItem p {
+margin-bottom: 10px;
+color: #777;
+}
+
+.resultItem .resultInfo {
+display: flex;
+align-items: center;
+margin-bottom: 15px;
+}
+
+.resultItem .resultInfo .icon {
+margin-right: 10px;
+font-size: 16px;
+}
+
+.resultItem .resultInfo .status {
+font-weight: 600;
+}
+
+.resultItem .resultInfo .assessment {
+color: #339933;
 }
 
 .resultLink {
-    display: inline-block;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-decoration: none;
+display: inline-block;
+background-color: #929292;
+color: #fff;
+padding: 5px 10px;
+align-self: center;
+border-radius: 5px;
+text-decoration: none;
+transition: background-color 0.3s ease;
 }
 
 .resultLink:hover {
-    background-color: #0056b3;
+background-color: #747474;
+}
+
+.filterButton {
+background-color: #929292;
+color: white;
+padding: 5px 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+display: inline-block;
+margin-right: 10px;
+}
+
+.filterButton:hover {
+background-color: #747474;
+}
+
+.filterButton.active {
+    background-color: #747474;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+margin-top: 20px;
+}
+
+.heading {
+    margin: 10px 0;
 }

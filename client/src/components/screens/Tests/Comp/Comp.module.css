@@ -1,231 +1,114 @@
-.labelPattern{
-    display: flex;
-    justify-content: right;
+.group {
+    margin-bottom: 20px;
 }
 
-.selectPattern {
-    background: #929292;
-    border: 5px solid #799BC0;
-    border-radius: 12px;
-    width: 200px;
-    cursor: pointer;
-    color: #fff;
-    height: 50px;
+.testCreateTitle {
     font-family: 'BMWGroupTNTT-Regular', sans-serif;
+    font-size: 20px;
 }
 
-.testName{
-    display: flex;
-    width: 350px;
-    margin: 0 auto;
+.groupName {
+    margin-top: 10px;
 }
 
-.testName input {
-    color: #fff;
-    border: 5px solid #799BC0;
-    border-radius: 12px;
-    background: #929292;
-    font-family: 'BMWGroupTNTT-Regular', sans-serif;
-}
-
-.testName input::placeholder {
-    color: #fff;
-}
-
-.questions {
-    display: flex;
-    flex-direction: column;
-}
-
-.questionTitle{
-    display: flex;
-    justify-content: space-between;
-}
-
-.questionTitleLabel {
-    display: flex;
-    flex-direction: column;
-}
-
-.questionTitleLabel input {
-    padding: 0 6px;
-    width: 300px;
-    height: 30px;
+.group input[type="text"],
+.group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
     border-radius: 8px;
-    color: #fff;
-    border: none;
-    background: #929292;
     font-family: 'BMWGroupTNTT-Regular', sans-serif;
 }
 
-.questionCost {
-    width: 75px;
+.question {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
 }
 
-.questionCost input {
-    border-radius: 12px;
-    border: 5px solid #799BC0;
-    background: #929292;
-    color: #fff;
+.question textarea {
+    width: 100%;
+    height: 43px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: none;
     font-family: 'BMWGroupTNTT-Regular', sans-serif;
 }
 
-.questionType {
-    display: flex;
-    flex-direction: column;
-}
-
-.questionType select {
-    background: #929292;
+.btnAddQuestion,
+.btnAddGroup {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #799BC0;
+    color: #fff;
     border: none;
-    border-radius: 12px;
-    width: 300px;
+    border-radius: 8px;
     cursor: pointer;
-    color: #fff;
-    height: 50px;
     font-family: 'BMWGroupTNTT-Regular', sans-serif;
+    transition: background-color 0.3s;
 }
 
-.questionOption {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.btnAddQuestion:hover,
+.btnAddGroup:hover {
+    background-color: #688ea8;
 }
 
-.btnDelOption {
-    width: 10px;
-    border: none;
-    background: none;
-}
-
-.btnDelOption:hover {
-    border: none;
-    background: none;
-}
-
-.basket {
-    width: 30px;
-}
-
-.questionOptionTitle {
-    max-width: 550px;
-    height: 36px;
-    background: #929292;
-    color: #fff;
-    font-family: 'BMWGroupTNTT-Regular', sans-serif;
-}
-
-.isTrue {
-    display: flex;
-    align-items: center;
-}
-
-.isTrue input {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
-    border: 2px solid gray;
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 8px;
-}
-
-.isTrue input:checked {
-    background-color: #4CAF50;
-    border: 2px solid #4CAF50;
-}
-
-.isTrue input:checked::before {
-    content: '\2713';
-    font-size: 16px;
-    color: #fff;
-    position: relative;
-    top: -3px;
-    left: 2px;
-}
-
-.btnAddOption {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    border-radius: 12px;
-    background: #799BC0;
-    width: 220px;
-    height: 45px;
-    font-family: 'BMWGroupTNTT-Regular', sans-serif;
-
+.btnAddGroup {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
 }
 
 .btnDelQuestion {
-    width: 150px;
-    border: none;
-    background: #fff;
+    padding: 5px 10px;
+    background-color: #fff;
     color: #929292;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all .2s ease-in-out;
     font-family: 'BMWGroupTNTT-Regular', sans-serif;
-
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .btnDelQuestion:hover {
-    background: #fff;
+    background-color: #f2f2f2;
     color: #535353;
 }
 
-.btnAddQuestion {
-    background: #929292;
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    border-radius: 12px;
-    width: 220px;
-    height: 45px;
+.btnCreateTest {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #929292;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     font-family: 'BMWGroupTNTT-Regular', sans-serif;
+    transition: background-color 0.3s;
 }
 
-.btnCreateTest{
-    background: #929292;
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    border-radius: 12px;
-    margin-top: 20px;
-    width: 420px;
-    height: 45px;
-    font-family: 'BMWGroupTNTT-Regular', sans-serif;
+.btnCreateTest:hover {
+    background-color: #7d7d7d;
 }
 
 .container {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: auto;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
-@media (min-width: 768px) {
-    .container {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+
+.buttons {
+    display: flex;
+    justify-content: center;
 }
-@media (min-width: 1024px) {
-    .container {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-}
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
+
+.buttons button {
+    margin: 0 10px;
 }

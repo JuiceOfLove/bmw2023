@@ -94,11 +94,13 @@ const Comp = () => {
 
   return (
     <div className={styles.container}>
+      <span className={styles.testCreateTitle}>Создание теста компетенции</span>
       <label className={styles.testName}>
         <input
           placeholder='Введите название теста'
           type="text"
           value={testData.testName}
+          className={styles.testName}
           onChange={(e) => setTestData({ ...testData, testName: e.target.value })}
         />
       </label>
@@ -106,7 +108,7 @@ const Comp = () => {
       {testData.groups.map((group, groupIndex) => (
         <div key={groupIndex} className={styles.group}>
           <input
-            placeholder='Введите название группы'
+            placeholder='Введите тему вопросов'
             type="text"
             value={group.groupName}
             onChange={(e) => handleGroupChange(groupIndex, 'groupName', e.target.value)}
@@ -146,8 +148,10 @@ const Comp = () => {
         </div>
       ))}
 
-      <button className={styles.btnAddGroup} onClick={addGroup}>Добавить группу</button>
-      <button className={styles.btnCreateTest} onClick={handleCreateTest}>Создать тест</button>
+      <div className={styles.buttons}>
+        <button className={styles.btnAddGroup} onClick={addGroup}>Добавить тему</button>
+        <button className={styles.btnCreateTest} onClick={handleCreateTest}>Создать тест</button>
+      </div>
     </div>
   );
 };

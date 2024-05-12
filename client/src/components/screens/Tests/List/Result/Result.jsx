@@ -108,7 +108,7 @@ const Result = () => {
     if (type === 'comp') {
         return (
             <div className={styles.resultContainer}>
-                <h2>Результаты теста</h2>
+                <h2>Результат тестирования компетенции {test.recipient}</h2>
                 <div style={{ width: '450px', height: '400px' }}>
                     <canvas id="myChart"></canvas> {/* Контейнер для графика */}
                 </div>
@@ -118,7 +118,7 @@ const Result = () => {
 
     return (
         <div className={styles.resultContainer}>
-            <h2>Результаты теста</h2>
+            <h2>Результат тестирования {test.recipient}</h2>
             <ul>
                 {test && test.test && test.test.map((question, index) => (
                     <li key={index}>
